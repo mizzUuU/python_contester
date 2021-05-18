@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/task_page_css.css' %}">
+</head>
+<body>
+
+
+<!-- TAB CONTROLLERS -->
+<input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
+<input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
+<input id="panel-4-ctrl" class="panel-radios" type="radio" name="tab-radios">
+<input id="panel-5-ctrl" class="panel-radios" type="radio" name="tab-radios">
+<input id="nav-ctrl" class="panel-radios" type="checkbox" name="nav-checkbox">
+
+<header id="introduction">
+  <h1>{{ task.title }}</h1>
+</header>
+
+<!-- TABS LIST -->
+<ul id="tabs-list">
+  <!-- MENU TOGGLE -->
+  <!--INLINE-BLOCK FIX
+ -->
+  <li id="li-for-panel-2">
+    <label class="panel-label" for="panel-2-ctrl">Problem</label>
+  </li>
+  <!--INLINE-BLOCK FIX
+ -->
+  <li id="li-for-panel-3">
+    <label class="panel-label" for="panel-3-ctrl">Your code</label>
+  </li>
+  <!--INLINE-BLOCK FIX
+ -->
+  <li id="li-for-panel-4">
+    <label class="panel-label" for="panel-4-ctrl">Submissions</label>
+  </li>
+  <!--INLINE-BLOCK FIX
+ -->
+  <li id="li-for-panel-5" class="last">
+    <label class="panel-label" for="panel-5-ctrl">Solution</label>
+  </li>
+  <label id="close-nav-label" for="nav-ctrl">Close</label>
+</ul>
+
+<!-- THE PANELS -->
+<article id="panels">
+  <div class="container">
+    <section id="panel-2">
+      <main>
+        <h1>Task title</h1>
+          <p><code>Task description!</code> In CSS, you can query based on the  selector for radios and checkboxes to style siblings down the DOM scope. To do this, we can use the. It will select same-level siblings after the given selector. Because the tab in this demo are nested and not immediate siblings, we will need to select their topmost parent that is at the same level as our .</p>
+        <p>To demonstrate, we will do a simplified version of this with a checkbox:</p>
+
+        <hr>
+        <input id="demo-child-toggle" type="checkbox">
+        <label class="demo-label" for="demo-child-toggle">Image</label>
+        <div id="demo-parent">
+            <img src="https://habrastorage.org/webt/7q/vz/lx/7qvzlxa4f0zpwnmp_dwdeuqubje.png">
+        </div>
+
+<h1>Example 1</h1>
+<pre>
+&lt;input id="demo-child-toggle" type="checkbox"&gt;
+&lt;label for="demo-child-toggle"&gt;Toggle #demo-child&lt;/label&gt;
+&lt;div id="demo-parent"&gt;
+&lt;div id="demo-child"&gt;#demo-child&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h1>Example 2</h1>
+<pre>
+#demo-child-toggle {
+  display: none;
+}
+#demo-child-toggle:checked ~ #demo-parent #demo-child {
+  color: #c0392b;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+</pre>
+
+
+        <hr>
+        <input id="demo-child-toggle" type="checkbox">
+        <label class="demo-label" for="demo-child-toggle">Note</label>
+        <div id="demo-parent">
+          <div id="demo-child">#note</div>
+        </div>
+        <p>As you can see, we can control the style of content that comes after a hidden input by toggling it via its label.</p>
+      </main>
+    </section>
+    <section id="panel-3">
+      <main>
+        <h1>Your code</h1>
+
+
+
+
+        <div class="window">
+		<div class="window-header">
+			<div class="action-buttons"></div>
+			<select class="language">
+				<option value="javascript" selected>Python</option>
+				<option value="markup">HTML</option>
+				<option value="php">PHP</option>
+			</select>
+		</div>
+		<div class="window-body">
+			<textarea class="code-input">// Switch the language and put some code on me :)           ↑↑↑↑↑↑
+// This is a 'Hello World' example.
+
+function greetings(name){
+    name = name || "stranger";
+    return "Hello, " + name + "!";
+}
+
+window.onLoad = alert(greetings());
+            </textarea>
+			<pre class="code-output">
+			</pre>
+		</div>
+	</div>
+
+
+
+      </main>
+
+    </section>
+    <section id="panel-4">
+      <main>
+        <h1>You have not submitted any code!</h1>
+      </main>
+    </section>
+    <section id="panel-5">
+      <main>
+        <h1>This section is allowed if you your code is correct</h1>
+      </main>
+    </section>
+  </div>
+</article>
+
+<script src="{% static 'js/task_page_js.js' %}"></script>
+
+</body>
+</html>
