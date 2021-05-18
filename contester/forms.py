@@ -18,3 +18,7 @@ class NewUserForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+
+class DocumentForm(forms.Form):
+	file = forms.FileField(label='Select a file', help_text='max. 1 megabytes')

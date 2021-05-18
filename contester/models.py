@@ -37,7 +37,7 @@ def get_profile_image_filepath(self, filename):
 
 
 def get_default_profile_image():
-    return "default_media/default_profile_image.png"
+    return "default_media/default_profile-image.png"
 
 
 class Account(AbstractBaseUser):
@@ -74,7 +74,7 @@ class Account(AbstractBaseUser):
 
 
 class Contest(models.Model):
-    title = models.CharField(max_length=32)
+    title = models.CharField(max_length=100)
     description = models.TextField()
     time_interval = models.TimeField(blank=True, null=True)
     user_counter = models.IntegerField(default=0)
@@ -83,8 +83,8 @@ class Contest(models.Model):
 
 
 class Task(models.Model):
-    title = models.CharField(max_length=32)
-    description = models.TextField()
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000)
     complexity = models.CharField(default=None, blank=True, null=True, max_length=10)
     topics = ArrayField(models.CharField(default=list, blank=True, null=True, max_length=32))
     user_counter = models.IntegerField(blank=True, default=0)
@@ -93,3 +93,9 @@ class Task(models.Model):
     image = models.ImageField(default=None,blank=True, null=True, upload_to='task_image')
     note = models.TextField(default=None, blank=True, null=True)
     example = models.TextField(default=None, blank=True, null=True)
+
+
+class Document(models.Model):
+    id = models.AutoField(primary_key=True)
+    docfile = models.FileField(upload_to='codes/',
+                               default='codes/empty.txt')

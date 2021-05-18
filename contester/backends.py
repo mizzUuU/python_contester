@@ -1,4 +1,5 @@
-# from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+from django.contrib.auth.backends import ModelBackend# from django.contrib.auth import get_user_model
 # from django.contrib.auth.backends import ModelBackend
 #
 #
@@ -16,3 +17,4 @@
 #         else:
 #             if user.check_password(password) and self.user_can_authenticate(user):
 #                 return user
+
